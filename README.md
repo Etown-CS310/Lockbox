@@ -1,3 +1,7 @@
+Lockbox Password Manager
+Hunter Rohrbaugh
+CS310 - Wang
+
 Lockbox is a password manager specifically designed for families.
 Once the user inputs the Website, Username, and Password it gets stored below so that the user can view it.
 
