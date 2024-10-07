@@ -12,32 +12,50 @@ body, html {
 .container {
     display: flex;
     height: 100vh;
+    width: 100vw;
 }
 
-.left-box {
-    width: 33.33%;
+.left {
+    width: 20%;
     background-color: lightblue;
 }
 
 .right {
     display: flex;
     flex-direction: column;
-    width: 66.67%;
+    width: 80%;
+    background-color: white;
 }
 
-.top-right-box {
+.newpass {
     height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background-color: lightcoral;
+    padding: 10px;
 }
 
-.bottom-right-box {
+.newpass h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: white;
+}
+
+.newpass input {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.passwords {
     flex-grow: 1;
     background-color: lightgreen;
 }
 
-.box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.newpass, .passwords {
     border: 1px solid #000;
 }

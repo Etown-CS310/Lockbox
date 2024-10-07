@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lockbox Password Manager</title>
+    <title>Three Boxes Layout</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="box left-box">Left Box</div>
+        <div class="left">
+            <div class="history">Password History</div>
+        </div>
         <div class="right">
-            <div class="box top-right-box">Top Right Box</div>
-            <div class="box bottom-right-box">Bottom Right Box</div>
+            <div class="newpass">
+                <h2>Enter your Criteria</h2>
+                <input type="text" class="website" placeholder="Website URL">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password">
+            </div>
+            <div class="passwords">
+                Saved Passwords
+            </div>
         </div>
     </div>
 </body>
