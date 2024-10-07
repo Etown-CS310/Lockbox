@@ -4,7 +4,7 @@ function login() {
 
     if (username && password) {
         document.getElementById("login-screen").style.display = "none";
-        document.getElementById("main-content").classList.remove("hidden");
+        document.getElementById("Inside").classList.remove("hidden");
     } else {
         alert("Please enter a valid username and password.");
     }
@@ -19,16 +19,16 @@ function savePassword() {
         var passwordsDiv = document.getElementById("passwords");
         var historyList = document.getElementById("history-list");
 
-        // Create tile for password
+        // password box
         var passwordTile = document.createElement("div");
         passwordTile.classList.add("password-tile");
 
-        // Create title for website
+        // website box
         var title = document.createElement("h3");
         title.innerText = website;
         passwordTile.appendChild(title);
 
-        // Make it hidden
+        // hide
         var details = document.createElement("div");
         details.classList.add("details");
         details.innerHTML = `<p>Email: ${email}</p><p>Password: ${userPassword}</p>`;
@@ -36,13 +36,12 @@ function savePassword() {
 
         passwordsDiv.appendChild(passwordTile);
 
-        // Add a new entry to the history with the specified message
+        // add it to history
         var historyItem = document.createElement("div");
         historyItem.classList.add("history-item");
-        historyItem.innerText = `User saved a password for ${website}`; // Updated message
+        historyItem.innerText = `User saved a password for ${website}`;
         historyList.appendChild(historyItem);
 
-        // Clear input fields
         document.getElementById("website").value = '';
         document.getElementById("email").value = '';
         document.getElementById("user-password").value = '';
@@ -52,16 +51,15 @@ function savePassword() {
 }
 
 function searchPasswords() {
-    var input = document.getElementById("search").value.toLowerCase(); // Get search input
-    var passwordTiles = document.getElementsByClassName("password-tile"); // Get all password tiles
+    var input = document.getElementById("search").value.toLowerCase();
+    var passwordTiles = document.getElementsByClassName("password-tile");
 
-    // Loop through tiles and show/hide based on search input
     for (var i = 0; i < passwordTiles.length; i++) {
-        var title = passwordTiles[i].getElementsByTagName("h3")[0].innerText.toLowerCase(); // Get the website title
+        var title = passwordTiles[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
         if (title.includes(input)) {
-            passwordTiles[i].style.display = ""; // Show tile
+            passwordTiles[i].style.display = "";
         } else {
-            passwordTiles[i].style.display = "none"; // Hide tile
+            passwordTiles[i].style.display = "none";
         }
     }
 }
