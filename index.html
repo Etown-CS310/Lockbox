@@ -3,25 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Boxes Layout</title>
+    <title>Secure Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="left">
-            <div class="history">Password History</div>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-form">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
         </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container hidden">
+        <!-- History Section -->
+        <div class="left">
+            <div class="history">
+                <h2>History</h2>
+                <div id="history-list">
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Password Input and Storage -->
         <div class="right">
             <div class="newpass">
                 <h2>Enter your Criteria</h2>
-                <input type="text" class="website" placeholder="Website URL">
-                <input type="email" class="email" placeholder="Email">
-                <input type="password" class="password" placeholder="Password">
+                <input type="text" id="website" class="website" placeholder="Website URL">
+                <input type="email" id="email" class="email" placeholder="Email">
+                <input type="password" id="user-password" class="password" placeholder="Password">
+                <button onclick="savePassword()">Save</button>
             </div>
-            <div class="passwords">
-                Saved Passwords
+            
+            <input type="text" id="search" placeholder="Search for a website" oninput="searchPasswords()">
+    
+            <div id="passwords" class="passwords">
+                
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

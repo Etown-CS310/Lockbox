@@ -1,14 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Existing styles... */
 
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
+/* Main content layout */
 .container {
     display: flex;
     height: 100vh;
@@ -18,8 +10,31 @@ body, html {
 .left {
     width: 20%;
     background-color: lightblue;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+.left h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+}
+
+#history-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+/* Right-side input and password display */
 .right {
     display: flex;
     flex-direction: column;
@@ -27,6 +42,7 @@ body, html {
     background-color: white;
 }
 
+/* Newpass Section */
 .newpass {
     height: 30%;
     display: flex;
@@ -37,25 +53,63 @@ body, html {
     padding: 10px;
 }
 
-.newpass h2 {
+.newpass input, .newpass button {
     margin-bottom: 10px;
-    font-size: 1.5em;
-    color: white;
 }
 
-.newpass input {
-    width: 30%;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
+/* Passwords Section */
 .passwords {
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
     background-color: lightgreen;
+    padding: 10px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 70%; /* Adjust max-height to fit your layout */
 }
 
-.newpass, .passwords {
+.password-tile {
+    min-width: 200px; /* Minimum width */
+    max-width: 100%; /* Allow it to grow but limit it to the parent width */
+    height: 100px; /* Set height to 100px */
+    margin: 10px; /* Space between tiles */
+    padding: 10px; /* Inner padding */
+    background-color: white;
     border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Use flexbox to manage content alignment */
+    flex-direction: column; /* Stack title and details vertically */
+}
+
+.password-tile h3 {
+    margin: 0; /* Remove margin for better fit */
+    word-wrap: break-word; /* Allow text to break and wrap */
+    flex-grow: 1; /* Allow title to take available space */
+}
+
+.password-tile .details {
+    display: none;
+}
+
+.password-tile:hover .details {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px; /* Adjust padding for the details */
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Space between search bar and passwords section */
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
