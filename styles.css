@@ -1,10 +1,22 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    font-family: "Nanum Gothic Coding", monospace;
+    background-color: lightgray;
     color: #333;
     margin: 0;
     padding: 0;
 }
+.nanum-gothic-coding-regular {
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.nanum-gothic-coding-bold {
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+  
 
 .login-screen {
     position: fixed;
