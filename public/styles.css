@@ -1,0 +1,61 @@
+body {
+    font-family: "Nanum Gothic Coding", monospace;
+    background-color: lightgray;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.login-screen, .register-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-form, .register-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-form h2, .register-form h2 {
+    margin-bottom: 20px;
+    color: #4A90E2;
+}
+
+.login-form input, .register-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-form button, .register-form button {
+    padding: 10px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover, .register-form button:hover {
+    background-color: #357ABD;
+}
+
+.hidden {
+    display: none;
+}

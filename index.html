@@ -4,53 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <!-- Login -->
-    <div id="login-screen" class="login-screen">
+    <div class="login-screen">
         <div class="login-form">
             <h2>Login</h2>
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <button onclick="login()">Login</button>
+            <p>Don't have an account? <button onclick="showRegisterForm()">Register</button></p>
         </div>
     </div>
 
-    <!-- Inside -->
-    <div id="Inside" class="container hidden">
-        <!-- History -->
-        <div class="left">
-            <div class="history">
-                <h2>History</h2>
-                <div id="history-list"></div>
-            </div>
-        </div>
-
-        <!-- Password Stuff -->
-        <div class="right">
-            <div class="newpass">
-                <h2>Enter your Criteria</h2>
-                <input type="text" id="website" class="website" placeholder="Website URL">
-                <input type="email" id="email" class="email" placeholder="Email / Username">
-                <input type="password" id="user-password" class="password" placeholder="Password">
-                <button onclick="savePassword()">Save</button>
-            </div>
-
-            <input type="text" id="search" placeholder="Search for a website" oninput="searchPasswords()">
-    
-            <div id="passwords" class="passwords"></div>
+    <div class="register-screen hidden">
+        <div class="register-form">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <button onclick="showLoginForm()">Login</button></p>
         </div>
     </div>
 
-    
+    <script src="script.js"></script>
 </body>
 </html>
