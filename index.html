@@ -15,6 +15,7 @@
             <input type="password" id="password" placeholder="Password" required>
             <button onclick="login()">Login</button>
             <p>Don't have an account? <button onclick="showRegisterForm()">Register</button></p>
+            <p id="login-error" class="error-message"></p>
         </div>
     </div>
 
@@ -25,9 +26,71 @@
             <input type="password" id="register-password" placeholder="Password" required>
             <button onclick="register()">Register</button>
             <p>Already have an account? <button onclick="showLoginForm()">Login</button></p>
+            <p id="register-error" class="error-message"></p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    window.location.href = `/dashboard/${data.userId}`;
+                } else {
+                    document.getElementById('login-error').textContent = data.error;
+                }
+            } catch (error) {
+                document.getElementById('login-error').textContent = 'An error occurred. Please try again.';
+            }
+        }
+
+        async function register() {
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showLoginForm();
+                    document.getElementById('login-error').textContent = 'Registration successful! Please login.';
+                } else {
+                    document.getElementById('register-error').textContent = data.error;
+                }
+            } catch (error) {
+                document.getElementById('register-error').textContent = 'An error occurred. Please try again.';
+            }
+        }
+
+        function showRegisterForm() {
+            document.querySelector('.login-screen').classList.add('hidden');
+            document.querySelector('.register-screen').classList.remove('hidden');
+        }
+
+        function showLoginForm() {
+            document.querySelector('.register-screen').classList.add('hidden');
+            document.querySelector('.login-screen').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
