@@ -3,12 +3,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const sqlite3 = require('sqlite3');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 // Initialize SQLite database
 const db = new sqlite3.Database('./loginInfo.db', (err) => {
@@ -115,7 +117,6 @@ app.post('/store-credentials', async (req, res) => {
     }
 
     try {
-        // Encrypt password before storing
         const encryptedPassword = await bcrypt.hash(password, 10);
         
         db.run(
