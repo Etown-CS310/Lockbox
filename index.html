@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js"></script>
 </head>
 <body>
     <div class="login-screen">
         <div class="login-form">
-            <h2>Login</h2>
+            <h2>Login to LockBox</h2>
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <button onclick="login()">Login</button>
@@ -30,67 +31,5 @@
         </div>
     </div>
 
-    <script>
-        async function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            try {
-                const response = await fetch('/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    window.location.href = `/dashboard/${data.userId}`;
-                } else {
-                    document.getElementById('login-error').textContent = data.error;
-                }
-            } catch (error) {
-                document.getElementById('login-error').textContent = 'An error occurred. Please try again.';
-            }
-        }
-
-        async function register() {
-            const username = document.getElementById('register-username').value;
-            const password = document.getElementById('register-password').value;
-            
-            try {
-                const response = await fetch('/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    showLoginForm();
-                    document.getElementById('login-error').textContent = 'Registration successful! Please login.';
-                } else {
-                    document.getElementById('register-error').textContent = data.error;
-                }
-            } catch (error) {
-                document.getElementById('register-error').textContent = 'An error occurred. Please try again.';
-            }
-        }
-
-        function showRegisterForm() {
-            document.querySelector('.login-screen').classList.add('hidden');
-            document.querySelector('.register-screen').classList.remove('hidden');
-        }
-
-        function showLoginForm() {
-            document.querySelector('.register-screen').classList.add('hidden');
-            document.querySelector('.login-screen').classList.remove('hidden');
-        }
-    </script>
 </body>
 </html>

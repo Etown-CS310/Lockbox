@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 
 // Serve dashboard after login
 app.get('/dashboard/:userId', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dashboard.html'));
+    res.sendFile(path.join(__dirname, 'dashboard', 'dashboard.html'));
 });
 
 // Login route

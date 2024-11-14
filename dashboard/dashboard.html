@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>LockBox Password Manager</h1>
+
+        <div class="container">
+            <div class="left-section">
+                <div class="top-left">
+                    <h2>Add New Password</h2>
+                    <input type="text" id="website" placeholder="Website" required>
+                    <input type="text" id="site-username" placeholder="Username/Email" required>
+                    <input type="password" id="site-password" placeholder="Password" required>
+                    <button onclick="savePassword()">Save Password</button>
+                    <p id="save-error" class="error-message"></p>
+                </div>
+
+                <div class="bottom-left">
+                    <h2>Password History</h2>
+                    <ul id="recent-passwords"></ul>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h2>All Saved Passwords</h2>
+                <div id="all-passwords" class="password-tiles"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
