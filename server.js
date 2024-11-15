@@ -12,13 +12,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-// Initialize SQLite database
+//SQLite database
 const db = new sqlite3.Database('./loginInfo.db', (err) => {
     if (err) {
         console.error('Error opening database:', err);
     } else {
         console.log('Database connected');
-        // Create tables if they don't exist
         db.run(`
             CREATE TABLE IF NOT EXISTS Users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,17 +39,14 @@ const db = new sqlite3.Database('./loginInfo.db', (err) => {
     }
 });
 
-// Serve login page at root
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Serve dashboard after login
 app.get('/dashboard/:userId', (req, res) => {
     res.sendFile(path.join(__dirname, 'dashboard', 'dashboard.html'));
 });
 
-// Login route
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -81,7 +77,6 @@ app.post('/login', async (req, res) => {
     });
 });
 
-// Register route
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
 
@@ -108,7 +103,6 @@ app.post('/register', async (req, res) => {
     }
 });
 
-// Store new credentials
 app.post('/store-credentials', async (req, res) => {
     const { userId, website, username, password } = req.body;
     
@@ -136,7 +130,6 @@ app.post('/store-credentials', async (req, res) => {
     }
 });
 
-// Get all stored credentials for a user
 app.get('/credentials/:userId', (req, res) => {
     const userId = req.params.userId;
     
@@ -153,7 +146,6 @@ app.get('/credentials/:userId', (req, res) => {
     );
 });
 
-// Get recent credentials (last 5) for a user
 app.get('/recent-credentials/:userId', (req, res) => {
     const userId = req.params.userId;
     
@@ -170,7 +162,6 @@ app.get('/recent-credentials/:userId', (req, res) => {
     );
 });
 
-// Start server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

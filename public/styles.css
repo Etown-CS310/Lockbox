@@ -106,7 +106,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    width: calc(50% - 20px); /* Adjust width for two tiles per row */
+    width: calc(50% - 20px);
     position: relative;
     cursor: pointer;
 }
@@ -126,9 +126,9 @@ body {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 100%; /* Position above the tile */
+    bottom: 100%;
     left: 50%;
-    margin-left: -100px; /* Center the tooltip */
+    margin-left: -100px;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -137,13 +137,12 @@ body {
     opacity: 1;
 }
 
-/* Add this to your styles.css for better visibility */
 #all-passwords li {
     position: relative;
     cursor: pointer;
 }
 
 #all-passwords li:hover {
-    background-color: #f0f0f0; /* Change background on hover */
+    background-color: #f0f0f0;
 }
 
